@@ -1,0 +1,30 @@
+<h1>Gutchi Deets:</h1>
+
+@if(@Model.Health > 0)
+{
+  <h2> Name: @Model.Name</h2>
+  <h2> Health: @Model.Health</h2>
+  <h2>Food: @Model.Food</h2>
+  <h2>Attention: @Model.Attention</h2>
+  <h2>Rest: @Model.Rest</h2>
+}
+else
+{
+  <h1>Tamagotchi Dead!!!!</h1>
+}
+
+
+<a href='/tamagotchis/new'>Create your Tamagotchi!</a>
+<a href='/tamagotchis'>View Tamagotchi</a>
+
+<form action="/tamagotchis/time" method="post">
+  <button type="submit" name="button">Move Time</button>
+</form>
+
+@* <form action="/tamagotchis/@Model.GetId()" method="post">
+  <button type="submit" name="button">Destroy This Gutchi!</button>
+</form> *@
+
+<form action="/tamagotchis/@Model.GetId()" method="post">
+  <button type="submit" name="button">Destroy This Gutchi!</button>
+</form>

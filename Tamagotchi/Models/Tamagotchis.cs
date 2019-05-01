@@ -50,5 +50,15 @@ namespace TamagotchiFarm.Models
     {
       return _instances;
     }
+    public static void MoveTime()
+    {
+      foreach(Tamagotchi tamagotchi in _instances)
+      {
+        tamagotchi.Health = tamagotchi.Health - 40;
+        tamagotchi.Food = tamagotchi.Food - 10;
+        tamagotchi.Attention = tamagotchi.Attention - 10;
+        tamagotchi.Rest = tamagotchi.Rest - 10;
+      }
+    }
   }
 }

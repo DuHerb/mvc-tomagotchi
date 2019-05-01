@@ -13,7 +13,7 @@ namespace TamagotchiFarm.Controllers
       List<Tamagotchi> allTamagotchis = Tamagotchi.GetAll();
       return View(allTamagotchis);
     }
-    
+
     [HttpGet("/tamagotchis/new")]
     public ActionResult New()
     {
@@ -27,12 +27,19 @@ namespace TamagotchiFarm.Controllers
       return RedirectToAction("Index");
     }
 
-    // [HttpGet("/tamagotchis/{id}")]
-    // public ActionResult Show(int id)
-    // {
-    //   Tamagotchi tamagotchis = Tamagotchi.Find(id);
-    //   return View(tamagotchis);
-    // }
+    [HttpGet("/tamagotchis/{id}")]
+    public ActionResult Show(int id)
+    {
+      Tamagotchi tamagotchis = Tamagotchi.Find(id);
+      return View(tamagotchis);
+    }
+
+    [HttpPost("/tamagotchis/time")]
+    public ActionResult Update()
+    {
+      Tamagotchi.MoveTime();
+      return RedirectToAction("Index");
+    }
 
   }
 }
