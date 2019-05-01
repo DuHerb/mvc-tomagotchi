@@ -60,5 +60,55 @@ namespace TamagotchiFarm.Models
         tamagotchi.Rest = tamagotchi.Rest - 10;
       }
     }
+    public static void Feed(int searchId)
+    {
+      for(int i = 0; i < _instances.Count; i++)
+      {
+        if(_instances[i].GetId() == searchId)
+        {
+          _instances[i].Food = _instances[i].Food + 5;
+        }
+      }
+    }
+    public static void Heal(int searchId)
+    {
+      for(int i = 0; i < _instances.Count; i++)
+      {
+        if(_instances[i].GetId() == searchId)
+        {
+          _instances[i].Health = _instances[i].Health + 5;
+        }
+        // if(_instances[i].Health < 21)
+        // {
+        //   _instances[i].ShowMessage(_instances[i].Name + " is about to die", "Warning");
+        //   // MessageBox.Show( _instances[i].Name + " is about to die");
+        // }
+      }
+    }
+    public static void Love(int searchId)
+    {
+      for(int i = 0; i < _instances.Count; i++)
+      {
+        if(_instances[i].GetId() == searchId)
+        {
+          _instances[i].Attention = _instances[i].Attention + 5;
+        }
+      }
+    }
+    public static void Sleep(int searchId)
+    {
+      for(int i = 0; i < _instances.Count; i++)
+      {
+        if(_instances[i].GetId() == searchId)
+        {
+          _instances[i].Rest = _instances[i].Rest + 5;
+        }
+      }
+    }
+
+   //  private void ShowMessage(string Message, string Title)
+   // {
+   //     ScriptManager.RegisterStartupScript(Page, this.GetType(), "alert", string.Format("alert('{1}', '{0}');", Message, Title), true);
+   // }
   }
 }

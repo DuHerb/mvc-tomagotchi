@@ -40,6 +40,29 @@ namespace TamagotchiFarm.Controllers
       Tamagotchi.MoveTime();
       return RedirectToAction("Index");
     }
-
+    [HttpPost("/tamagotchis/food/{id}")]
+    public ActionResult UpdateFood(int id)
+    {
+      Tamagotchi.Feed(id);
+      return RedirectToAction("Show");
+    }
+    [HttpPost("/tamagotchis/health/{id}")]
+    public ActionResult UpdateHealth(int id)
+    {
+      Tamagotchi.Heal(id);
+      return RedirectToAction("Show");
+    }
+    [HttpPost("/tamagotchis/attention/{id}")]
+    public ActionResult UpdateAttention(int id)
+    {
+      Tamagotchi.Love(id);
+      return RedirectToAction("Show");
+    }
+    [HttpPost("/tamagotchis/rest/{id}")]
+    public ActionResult UpdateRest(int id)
+    {
+      Tamagotchi.Sleep(id);
+      return RedirectToAction("Show");
+    }
   }
 }

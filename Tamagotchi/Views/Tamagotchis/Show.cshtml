@@ -1,30 +1,61 @@
-<h1>Gutchi Deets:</h1>
-
-@if(@Model.Health > 0)
-{
-  <h2> Name: @Model.Name</h2>
-  <h2> Health: @Model.Health</h2>
-  <h2>Food: @Model.Food</h2>
-  <h2>Attention: @Model.Attention</h2>
-  <h2>Rest: @Model.Rest</h2>
-}
-else
-{
-  <h1>Tamagotchi Dead!!!!</h1>
-}
+@using TamagotchiFarm.Models;
 
 
-<a href='/tamagotchis/new'>Create your Tamagotchi!</a>
-<a href='/tamagotchis'>View Tamagotchi</a>
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <link rel="stylesheet" href="~/css/styles.css">
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="~/css/styles.css">
+    <title>Yeeeeep!</title>
+  </head>
+  <body>
 
-<form action="/tamagotchis/time" method="post">
-  <button type="submit" name="button">Move Time</button>
-</form>
+    <h1>Gutchi Deets:</h1>
 
-@* <form action="/tamagotchis/@Model.GetId()" method="post">
-  <button type="submit" name="button">Destroy This Gutchi!</button>
-</form> *@
+    @if(@Model.Health > 0 || @Model.Food > 0 || @Model.Attention> 0 || @Model.Rest > 0)
+    {
+      <h2> Name: @Model.Name</h2>
+      <h2> Health: @Model.Health</h2>
+      <h2>Food: @Model.Food</h2>
+      <h2>Attention: @Model.Attention</h2>
+      <h2>Rest: @Model.Rest</h2>
+    }
+    else
+    {
+      <h1>@Model.Name Dead!!!!</h1>
+    }
 
-<form action="/tamagotchis/@Model.GetId()" method="post">
-  <button type="submit" name="button">Destroy This Gutchi!</button>
-</form>
+
+    <a href='/tamagotchis/new'>Create your Tamagotchi!</a>
+    <a href='/tamagotchis'>View Tamagotchi</a>
+
+    <form action="/tamagotchis/food/@Model.GetId()" method="post">
+      <button class="btn btn-danger" type="submit" name="button">Feed Yo Gutchi</button>
+    </form>
+    <form action="/tamagotchis/health/@Model.GetId()" method="post">
+      <button class="btn btn-danger" type="submit" name="button">Mend them</button>
+    </form>
+    <form action="/tamagotchis/attention/@Model.GetId()" method="post">
+      <button class="btn btn-danger" type="submit" name="button">Love your Tamagotchi</button>
+    </form>
+    <form action="/tamagotchis/rest/@Model.GetId()" method="post">
+      <button class="btn btn-danger" type="submit" name="button">Sleep your Tamagotchi</button>
+    </form>
+    <form action="/tamagotchis/time" method="post">
+      <button class="btn btn-danger" type="submit" name="button">Move Time</button>
+    </form>
+
+    @* <form action="/tamagotchis/@Model.GetId()" method="post">
+    <button type="submit" name="button">Destroy This Gutchi!</button>
+  </form> *@
+
+  <form action="/tamagotchis/@Model.GetId()" method="post">
+    <button type="submit" name="button">Destroy This Gutchi!</button>
+  </form>
+
+
+
+  </body>
+</html>
