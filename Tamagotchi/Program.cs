@@ -1,5 +1,7 @@
 using System.IO;
 using Microsoft.AspNetCore.Hosting;
+using TamagotchiFarm.Models;
+
 
 namespace TamagotchiFarm
 {
@@ -7,6 +9,7 @@ namespace TamagotchiFarm
   {
     public static void Main(string[] args)
     {
+
       var host = new WebHostBuilder()
         .UseKestrel()
         .UseContentRoot(Directory.GetCurrentDirectory())
@@ -14,6 +17,7 @@ namespace TamagotchiFarm
         .UseStartup<Startup>()
         .Build();
 
+      Update newUpdate = new Update();
       host.Run();
     }
   }

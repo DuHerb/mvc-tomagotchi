@@ -54,7 +54,7 @@ namespace TamagotchiFarm.Models
     {
       foreach(Tamagotchi tamagotchi in _instances)
       {
-        tamagotchi.Health = tamagotchi.Health - 40;
+        tamagotchi.Health = tamagotchi.Health - 10;
         tamagotchi.Food = tamagotchi.Food - 10;
         tamagotchi.Attention = tamagotchi.Attention - 10;
         tamagotchi.Rest = tamagotchi.Rest - 10;
