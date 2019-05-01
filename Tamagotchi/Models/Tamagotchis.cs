@@ -1,7 +1,7 @@
-using System.Collection.Generic;
+using System.Collections.Generic;
 using System;
 
-namespace Tamagotchi.Models
+namespace TamagotchiFarm.Models
 {
   public class Tamagotchi
   {
@@ -10,6 +10,7 @@ namespace Tamagotchi.Models
     private int _food;
     private int _attention;
     private int _rest;
+    private int _id;
     private static List<Tamagotchi> _instances = new List<Tamagotchi> {};
 
     public string Name {get=> _name; set=> _name = value;}
@@ -26,7 +27,7 @@ namespace Tamagotchi.Models
       _attention = 100;
       _rest = 100;
       _instances.Add(this);
-      _id = _instances.count;
+      _id = _instances.Count;
     }
 
     public int GetId()
@@ -45,7 +46,7 @@ namespace Tamagotchi.Models
       }
       return _instances[0];
     }
-    public static List<Place> GetAll()
+    public static List<Tamagotchi> GetAll()
     {
       return _instances;
     }
